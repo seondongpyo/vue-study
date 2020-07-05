@@ -12,14 +12,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script>
-        new Vue({
+        const vm = new Vue({
             el: '#app',
             data: {
                 message: 'Hello Vue.js!'
             },
             computed: { // 데이터 연산들을 정의하는 영역
-                reversedMessage: function () {
-                    return this.message.split('').reverse().join('');
+                reversedMessage: {
+                    // Getter 
+                    get () {
+                        return this.message.split('').reverse().join('');
+                    },
+                    set (newMessage) {
+                        this.message = newMessage;
+                    }
                 }
             }
         });
