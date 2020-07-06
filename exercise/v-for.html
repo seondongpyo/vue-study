@@ -13,6 +13,12 @@
                 {{ todo.title }}
             </li>
         </ul>
+        <ul>
+            <!-- 객체에서 인덱스 사용 시 3번째!! -->
+            <li v-for="(value, key, index) in omnibus" :key="index">
+                {{ value }}
+            </li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
@@ -24,7 +30,11 @@
                     { title: '아침 먹기' },
                     { title: '점심 먹기' },
                     { title: '저녁 먹기' }
-                ]
+                ],
+                omnibus: {
+                    name: 'Omnibus',
+                    age: 33
+                }
             },
             methods: {
                 pushTodo () {
