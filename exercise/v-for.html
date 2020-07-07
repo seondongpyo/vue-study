@@ -13,6 +13,7 @@
                 {{ todo.title }}
             </li>
         </ul>
+        <button @click="addHomepage">Add Homepage Property</button>
         <ul>
             <!-- 객체에서 인덱스 사용 시 3번째!! -->
             <li v-for="(value, key, index) in omnibus" :key="index">
@@ -39,7 +40,12 @@
             methods: {
                 pushTodo () {
                     // this.todos[3] = { title: '야식 먹기' }
-                    this.todos.push({ title: '야식 먹기' })
+                    // this.todos.push({ title: '야식 먹기' })
+                    // Vue.set(this.todos, 3, { title: '야식 먹기' })
+                    this.$set(this.todos, 3, { title: '야식 먹기' })
+                },
+                addHomepage () {
+                    this.$set(this.omnibus, 'homepage', 'seondongpyo.blog')
                 }
             }
         });
