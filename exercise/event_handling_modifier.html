@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Handling - Modifier</title>
+</head>
+<body>
+    <style>
+        .parent {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+
+    <div id="app">
+        <!-- <div class="parent" @click.capture="clickHandler"> -->
+        <div class="parent" @click="clickHandler"></div>
+            <div class="child" @click.stop="clickHandler"></div>    <!-- .stop : 이벤트 버블링 방지 -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                clickHandler (event) {
+                    console.log(event.currentTarget.className)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
