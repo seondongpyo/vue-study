@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue v-for directive</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- 주의! 하나의 이벤트에 여러 개의 메서드를 붙일 때는 괄호()를 항상 붙여줘야 한다! -->
+            <!-- ex. @click="clickMethod1(); clickMethod2()"-->
+            <li v-for="(todo, index) in todos" :key="index"
+                @click="clickMethod1(todo.title, $event); clickMethod2()"
+                :class="'item-' + (index + 1)">
+                {{ todo.title }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                todos: [
+                    { title: '아침 먹기' },
+                    { title: '점심 먹기' },
+                    { title: '저녁 먹기' }
+                ]
+            },
+            methods: {
+                clickMethod1 (title, event) {
+                    console.log('click 1')
+                    console.log(title)
+                    console.log(event.currentTarget.className)
+                },
+                clickMethod2 () {
+                    console.log('click 2')
+                }
+            }
+        });
+    </script>
+</body>
+</html>
