@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Handling - Key Modifier</title>
+</head>
+<body>
+    <div id="app">
+        <label>입력1</label>
+        <input type="text" @keydown="keydownHandler1">
+        <br>
+        <label>입력2</label>
+        <input type="text" @keydown.ctrl.enter="keydownHandler2">
+        <!-- <input type="text" @keydown.enter="keydownHandler2"> -->
+        <!-- <input type="text" @keyup.13="keydownHandler2"> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            methods: {
+                keydownHandler1 (event) {
+                    if (event.keyCode === 13) {
+                        console.log('keydown');
+                    }
+                },
+                keydownHandler2 (event) {
+                    console.log('keydown.ctrl.enter')
+                }
+            }
+        });
+    </script>
+</body>
+</html>
