@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <my-comp>
+            <div slot="slot1">vue slot</div>
+            <input type="text" value="input 태그">
+        </my-comp>
+        <my-comp></my-comp> <!-- 컨텐츠가 없는 경우 slot 태그 컨텐츠로 대체됨 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        Vue.component('my-comp', {
+            template: '<div> <slot></slot> <slot name="slot1"></slot> </div>'
+        });
+
+        const vm = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>
