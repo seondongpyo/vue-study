@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <my-comp :my-msg="message"></my-comp>
+
+        <!-- required: true 설정 시 에러 발생 -->
+        <!-- <my-comp></my-comp> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        Vue.component('my-comp', {
+            template: '<div>{{ myMsg }}</div>',
+            props: {
+                myMsg: {    // camelCase 사용 시, 태그 속성에는 kebob-case 사용
+                    type: [String, Number],   // 데이터 타입 설정
+                    default: 'Default!', // 기본값 설정
+                    required: true,  // msg의 필수 속성 여부 설정
+                    validator (value) {   // 유효성 검사
+                        return value === 'Hello'
+                    }
+                }
+            }
+        });
+
+        const vm = new Vue({
+            el: '#app',
+            data () {
+                return {
+                    message: 'Hello'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
