@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <my-comp>
+            <!-- <template slot-scope="myProps">
+                {{ myProps.mySlotData }}
+            </template> -->
+
+            <template slot-scope="{ mySlotData }">
+                {{ mySlotData }}
+            </template>
+        </my-comp>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        Vue.component('my-comp', {
+            // template: '<div><slot my-slot-data="Hello Slot!"></slot></div>',
+            template: '<div><slot :my-slot-data="message"></slot></div>',
+            data () {
+                return {
+                    message: 'Hello Slot~'
+                }
+            }
+        });
+
+        const vm = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>
