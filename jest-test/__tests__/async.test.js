@@ -16,4 +16,23 @@ describe('비동기', () => {
             done(); 
         });
     });
+
+
+    // Promise 객체가 반환되는 구조라면 done처럼 대기함
+    test('then', () => {
+        return asyncFunction().then(res => {
+            expect(res).toBe('Passed!');
+        });
+    });
+
+    // resolves 활용
+    test('resolves', () => {
+        return expect(asyncFunction()).resolves.toBe('Passed!');
+    });
+
+    // async, await 활용
+    test('async/await', async () => {
+        const res = await asyncFunction();
+        expect(res).toBe('Passed!');
+    });
 });
