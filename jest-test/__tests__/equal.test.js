@@ -13,7 +13,7 @@ describe('equal test', () => {
         expect(can1).toEqual(can2);
     });
 
-    test('객체 간 비교는 toBe로 하면 안 됨', () => {
-        expect(can1).toBe(can2);
-    })
+    // test('객체 간 비교는 toBe로 하면 안 됨', () => {
+    //     expect(can1).toBe(can2);
+    // })
 });
