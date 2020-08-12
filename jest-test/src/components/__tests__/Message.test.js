@@ -11,5 +11,8 @@ describe('Message Component Test', () => {
 
         expect(wrapper.vm.msg).toBe('World?');
         expect(wrapper.element.tagName).toBe('SPAN');
+        
+        expect(wrapper.attributes().class).toBe('msg');
+        expect(wrapper.attributes('class')).toBe('msg');
     });
 });
