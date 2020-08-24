@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <app-header v-bind:props 속성 이름="상위 컴포넌트의 데이터"></app-header> -->
+        <app-header v-bind:title="str"></app-header>
+        <!-- 
+            1. 화면이 그려질 때 data 속성의 str이 app-header의 str에 뿌려짐
+                <app-header v-bind:title="프롭스 문자열"></app-header>
+            2. app-header 컴포넌트의 props 속성 중 title에 str 값이 바인딩
+                props: ['프롭스 문자열']
+            3. template의 {{ title }}에 props 속성 값이 전달
+                template: '<h1>프롭스 문자열</h1>'
+                
+        -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({   
+            // 인스턴스 옵션
+            el: '#app',
+            data: {
+                str: '프롭스 문자열'
+            },
+            components: {
+                // '컴포넌트 이름': 컴포넌트 내용
+                'app-header': {
+                    // app-header 컴포넌트 내용
+                    props: ['title'],
+                    template: '<h1>{{ title }}</h1>'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
