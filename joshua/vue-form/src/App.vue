@@ -9,21 +9,32 @@
         <label for="password">PW: </label>
         <input id="password" type="password" v-model="password">
       </div>
-      <button type="submit">로그인</button>
+      <button v-bind:disabled="!isUsernameValid" type="submit">로그인</button>
     </form>
 
     <!-- 유효성 검사 메시지 -->
     <p v-if="isError">올바르지 않은 ID 형식입니다.</p>
+    <p v-if="isUsernameValid">올바른 이메일 형식입니다.</p>
   </div>
 </template>
 
 <script>
+function validateEmail(email) {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(String(email).toLowerCase());
+}
+
 export default {
   data () {
     return {
       username: '',
       password: '',
       isError: false
+    }
+  },
+  computed: {
+    isUsernameValid () {
+      return validateEmail(this.username);
     }
   },
   methods: {
