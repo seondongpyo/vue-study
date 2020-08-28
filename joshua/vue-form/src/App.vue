@@ -3,7 +3,10 @@
     <form v-on:submit.prevent="submitForm">
       <div>
         <label for="username">ID: </label>
-        <input id="username" type="text" v-model="username">
+        <input id="username" type="text" v-model="username" 
+          class="username-input"
+          v-bind:class="{ 'error': isError }"
+        >
       </div>
       <div>
         <label for="password">PW: </label>
@@ -51,6 +54,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.username-input {
+  outline: none;
+}
+.username-input.error {
+  border: 1px solid red;
+}
 </style>
