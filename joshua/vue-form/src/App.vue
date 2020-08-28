@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-on:submit="submitForm">
+    <form v-on:submit.prevent="submitForm">
       <div>
         <label for="username">ID: </label>
         <input id="username" type="text" v-model="username">
@@ -23,9 +23,13 @@ export default {
     }
   },
   methods: {
-    submitForm (event) {
-      event.preventDefault();
-      console.log('form submitted');
+    submitForm () {
+      console.log('로그인');
+      this.initForm();
+    },
+    initForm () {
+      this.username = '';
+      this.password = '';
     }
   }
 }
