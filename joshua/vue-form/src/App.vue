@@ -14,14 +14,15 @@
       </div>
       <button v-bind:disabled="!isUsernameValid" type="submit">로그인</button>
     </form>
+    <p v-if="isSuccess">로그인 되었습니다.</p>
 
     <!-- 유효성 검사 메시지 -->
-    <p v-if="isError">올바르지 않은 ID 형식입니다.</p>
-    <p v-if="isUsernameValid">올바른 이메일 형식입니다.</p>
+    <!-- <p v-if="isError">올바르지 않은 ID 형식입니다.</p>
+    <p v-if="isUsernameValid">올바른 이메일 형식입니다.</p> -->
 
     <!-- 토스트 팝업 메시지 -->
     <!-- <toast-popup></toast-popup>과 동일 -->
-    <ToastPopup></ToastPopup>
+    <ToastPopup v-bind:open="isSuccess"></ToastPopup>
   </div>
 </template>
 
