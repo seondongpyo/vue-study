@@ -18,21 +18,32 @@
     <!-- 유효성 검사 메시지 -->
     <p v-if="isError">올바르지 않은 ID 형식입니다.</p>
     <p v-if="isUsernameValid">올바른 이메일 형식입니다.</p>
+
+    <!-- 토스트 팝업 메시지 -->
+    <!-- <toast-popup></toast-popup>과 동일 -->
+    <ToastPopup></ToastPopup>
   </div>
 </template>
 
 <script>
+import ToastPopup from '@/components/ToastPopup.vue';
+
+// 이메일 형식 유효성 검사 함수
 function validateEmail(email) {
   const re = /\S+@\S+\.\S+/;
   return re.test(String(email).toLowerCase());
 }
 
 export default {
+  components: {
+    ToastPopup
+  },
   data () {
     return {
       username: '',
       password: '',
-      isError: false
+      isError: false,
+      isSuccess: false
     }
   },
   computed: {
@@ -43,7 +54,8 @@ export default {
   methods: {
     submitForm () {
       console.log('로그인');
-      this.isError = true;
+      this.isSuccess = true;
+      // this.isError = true;
       // this.initForm();
     },
     initForm () {
