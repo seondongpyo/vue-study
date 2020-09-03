@@ -22,7 +22,11 @@
 
     <!-- 토스트 팝업 메시지 -->
     <!-- <toast-popup></toast-popup>과 동일 -->
-    <ToastPopup v-bind:open="isSuccess"></ToastPopup>
+    <ToastPopup 
+      v-bind:open="isSuccess"
+      v-on:close="isSuccess = false"
+    >
+    </ToastPopup>
   </div>
 </template>
 

@@ -1,10 +1,12 @@
 <template>
-  <div class="toast">
-    토스트 팝업
+  <div class="toast" v-bind:class="{ 'animation': open }">
+    로그인이 완료되었습니다.
   </div>
 </template>
 
 <script>
+let timer;
+
 export default {
   props: ['open'],
   watch: {
@@ -12,6 +14,8 @@ export default {
     open (newValue) {
       if (newValue) {
         console.log('토스트 팝업 열기');
+        clearTimeout(timer);
+        timer = setTimeout(() => { this.$emit('close'); }, 2000);
       }
     }
   }
@@ -32,7 +36,7 @@ export default {
   left: 5%;
   transition: bottom 0.5s linear;
 }
-.open {
+.animation {
   bottom: 5%;
 }
 </style>
