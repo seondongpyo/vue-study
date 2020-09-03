@@ -76,7 +76,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+body {
+  margin: 0;
+}
+form {
+  padding: 10px 5px;
+}
 .username-input {
   outline: none;
 }
