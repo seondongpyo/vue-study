@@ -5,6 +5,7 @@ const rl = readline.createInterface({
 });
 
 const { getCircleArea, getSquareArea } = require('./mathUtil');
+const { logFigureError, logInput, logResult } = require('./log');
 
 rl.question(
   '넓이를 구하고자 하는 도형을 입력해주세요. (정사각형, 원) : ', figure => {
@@ -13,22 +14,22 @@ rl.question(
     switch (figure) {
       case '정사각형':
         rl.question('한 변의 길이를 입력하세요 : ', input => {
-          console.log(`입력 받은 변의 길이 : ${input}`);
-          console.log(`정사각형의 넓이는 ${getSquareArea(input)} 입니다.`);
+          console.log(logInput(input));
+          console.log(logResult(figure, getSquareArea(input)));
           rl.close();
         });
         break;
 
       case '원':
         rl.question('반지름의 길이를 입력하세요 : ', input => {
-          console.log(`입력 받은 반지름의 길이 : ${input}`);
-          console.log(`원의 넓이는 ${getCircleArea(input)} 입니다.`);
+          console.log(logInput(input));
+          console.log(logResult(figure, getCircleArea(input)));
           rl.close();
         });
         break;
 
       default:
-        console.log('지원하지 않는 도형입니다. 정사각형 또는 원을 입력해주세요.');
+        console.log(logFigureError(figure));
         rl.close();
     }
   }
