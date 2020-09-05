@@ -1,12 +1,14 @@
 const PI = 3.14;
 const getCircleArea = r => r * r * PI;
+const getSquareArea = d => d * d;
 
 // 1) CommonJS 표준 내보내기
 // 1-1) module.exports
-// module.exports = {
-//   PI,
-//   getCircleArea
-// }
+module.exports = {
+  PI,
+  getCircleArea,
+  getSquareArea
+}
 
 // 1-2) exports
 // exports.PI = PI;
@@ -20,7 +22,7 @@ const getCircleArea = r => r * r * PI;
 // }
 
 // 2-2) export default
-export default {
-    PI,
-    getCircleArea
-}
+// export default {
+//     PI,
+//     getCircleArea
+// }
