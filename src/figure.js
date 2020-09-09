@@ -4,8 +4,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const { getCircleArea, getSquareArea } = require('./mathUtil');
-const { logFigureError, logInput, logResult } = require('./log');
+const { getCircleArea, getSquareArea } = require('../mathUtil');
+const { logFigureError, logInput, logResult } = require('../log');
 
 rl.question(
   '넓이를 구하고자 하는 도형을 입력해주세요. (정사각형, 원) : ', figure => {
