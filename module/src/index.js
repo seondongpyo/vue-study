@@ -11,6 +11,22 @@
 // import { getCircleArea } from './mathUtil';  // export 사용 시
 // const result = getCircleArea(2);
 
-import mathUtil from './mathUtil';  // export default 사용 시 : 객체 이름으로 접근
-const result = mathUtil.getCircleArea(2);
-console.log(result);
+// import mathUtil from './mathUtil';  // export default 사용 시 : 객체 이름으로 접근
+// const result = mathUtil.getCircleArea(2);
+// console.log(result);
+
+
+import 'normalize.css';
+import styles from './index.css';
+
+function component() {
+  const element = document.createElement('div');
+  element.innerHTML = 'Hello Webpack';
+
+  console.log(styles);
+  element.classList = styles.helloWebpack;
+
+  return element;
+}
+
+document.body.appendChild(component());
