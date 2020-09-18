@@ -27,12 +27,20 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.hbs$/i,
+        use: ['handlebars-loader']  // options를 지정하지 않는 간단한 형태
       }
     ]
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: './template.html'
+      title: 'Webpack', // title 값을 문서에 전달
+      meta: {   // meta 정보를 문서에 전달
+        viewport: 'width=device-width, initial-scale=1.0'
+      },
+      template: './template.hbs'
     })
   ],
   mode: 'none'
