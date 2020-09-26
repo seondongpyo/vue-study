@@ -32,3 +32,4 @@ function component() {
 
 document.body.appendChild(component());
 console.log($(`.${styles.helloWebpack}`).length);
+console.log(`IS PRODUCTION MODE : ${IS_PRODUCTION}`);

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "dev": "cross-env NODE_ENV=DEVELOPMENT webpack --config webpack.dev.js",
+    "build": "cross-env NODE_ENV=PRODUCTION webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -22,9 +22,11 @@
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.2",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.2.0"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "jquery": "^3.5.1",
     "normalize.css": "^8.0.1"
   }
