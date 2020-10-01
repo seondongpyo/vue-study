@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=DEVELOPMENT webpack-dev-server --config webpack.dev.js",
     "dev": "cross-env NODE_ENV=DEVELOPMENT webpack --config webpack.dev.js",
     "build": "cross-env NODE_ENV=PRODUCTION webpack --config webpack.prod.js"
   },
@@ -23,6 +24,7 @@
     "terser-webpack-plugin": "^4.2.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.2.0"
   },
   "dependencies": {
