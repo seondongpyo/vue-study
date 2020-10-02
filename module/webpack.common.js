@@ -58,6 +58,15 @@ module.exports = {
             outputPath: 'assets/' // 빌드 시 이미지 파일이 생성되는 경로를 'dist/assets/' 로 설정
           }
         }]
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 8192 // 파일의 바이트 크기 제한
+          }
+        }]
       }
     ]
   },

@@ -19,16 +19,19 @@
 import 'normalize.css';
 import styles from './index.css';
 import $ from 'jquery';
-import avatarImg from './assets/avatar.png'
+import avatarImg from './assets/avatar.png';
+import firefoxImgSvg from './assets/firefox.svg';
 
 function component() {
   const element = document.createElement('div');
   element.innerHTML = 'Hello Webpack';
 
   const imgElement = document.createElement('img');
-  imgElement.src = avatarImg;
+  // imgElement.src = avatarImg;
+  imgElement.src = firefoxImgSvg;
 
   console.log(avatarImg);
+  console.log(firefoxImgSvg);
   console.log(styles);
   element.appendChild(imgElement);
   element.classList = styles.helloWebpack;
