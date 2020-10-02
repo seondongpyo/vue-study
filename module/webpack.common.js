@@ -40,6 +40,24 @@ module.exports = {
       {
         test: /\.hbs$/i,
         use: ['handlebars-loader']  // options를 지정하지 않는 간단한 형태
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i, // i : 대소문자를 구분하지 않겠다
+        use: [{
+          loader: 'file-loader',
+          options: {
+            // name: '[contenthash].[ext]',  // 빌드 시 이미지 파일 이름 설정 기본값
+            name () {
+              if (!isProduction) {
+                return '[path][name].[ext]';  // 개발 모드일 시, 원래 파일 이름 표시
+              }
+
+              return '[contenthash].[ext]'; // 운영 모드일 시, 해쉬값이 적용된 파일 이름 표시
+            },
+            publicPath: 'assets/', // 파일을 참조하는 url 정보에 'assets/' 경로 추가
+            outputPath: 'assets/' // 빌드 시 이미지 파일이 생성되는 경로를 'dist/assets/' 로 설정
+          }
+        }]
       }
     ]
   },
