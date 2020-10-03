@@ -17,7 +17,7 @@
 
 
 import 'normalize.css';
-import styles from './index.css';
+import styles from './index.module.scss';
 import $ from 'jquery';
 import avatarImg from './assets/avatar.png';
 import firefoxImgSvg from './assets/firefox.svg';
