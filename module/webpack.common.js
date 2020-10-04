@@ -5,6 +5,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
+const postcssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      path: 'postcss.config.js'
+    }
+  }
+}
+
 // ※ Windows 운영체제에서 NODE_ENV를 script 앞에 사용하려면 cross-env 모듈을 설치하자
 const isProduction = process.env.NODE_ENV === 'PRODUCTION';
 
@@ -36,15 +45,15 @@ module.exports = {
                   modules: true
                 }
               },
-              {
-                loader: 'sass-loader'
-              }
+              postcssLoader,
+              'sass-loader'
             ]
           },
           {
             use: [
               MiniCssExtractPlugin.loader,
               'css-loader',
+              postcssLoader,
               'sass-loader'
             ]
           }

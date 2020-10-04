@@ -28,7 +28,9 @@ function component() {
 
   const imgElement = document.createElement('img');
   // imgElement.src = avatarImg;
+  // imgElement.classList = styles.avatarImg;
   imgElement.src = firefoxImgSvg;
+  imgElement.classList = styles.firefoxImgSvg;
 
   console.log(avatarImg);
   console.log(firefoxImgSvg);
