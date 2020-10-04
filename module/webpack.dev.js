@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const config = {
   mode: 'development',
@@ -12,8 +13,11 @@ const config = {
         { from: /./, to: '404.html' } // ./ : 특정 경로를 제외한 모든 경로 => 404 페이지로 이동
       ]
     },
-    port: 3333  // 개발 서버의 포트 번호 지정
-  }
+    port: 3333,  // 개발 서버의 포트 번호 지정
+  },
+  plugins: [
+    new StylelintPlugin()
+  ]
 };
 
 module.exports = merge(common, config);
