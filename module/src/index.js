@@ -21,6 +21,7 @@ import styles from './index.module.scss';
 import $ from 'jquery';
 import avatarImg from './assets/avatar.png';
 import firefoxImgSvg from './assets/firefox.svg';
+import '@babel/polyfill';
 
 function component() {
   const element = document.createElement('div');

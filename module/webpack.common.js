@@ -89,6 +89,11 @@ module.exports = {
             limit: 8192 // 파일의 바이트 크기 제한
           }
         }]
+      },
+      {
+        test: /.js/,
+        exclude: /node_modules/,  // node_modules 폴더 안의 js 파일들은 제외
+        loader: 'babel-loader'
       }
     ]
   },
